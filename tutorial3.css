@@ -9,6 +9,8 @@ img {
 body {
     background-color: gainsboro;
     font-family: Arial, sans-serif;
+    margin-left: 0;
+    width: 100%;
 }
 
 h2 {
