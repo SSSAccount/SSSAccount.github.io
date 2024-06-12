@@ -72,7 +72,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 #single, #double, #king {
     position: relative;
-    right: 507px;
+    right: 600px;
     float: right;
 }
 
