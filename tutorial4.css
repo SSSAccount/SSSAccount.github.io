@@ -1,0 +1,111 @@
+h1 {
+    text-align: center;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+fieldset {
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+legend {
+    border: 0.1px hidden;
+    background-color: rgba(0, 0, 255, 0.07)
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    margin: 2px;
+    position: relative;
+    left: 50px;    
+}
+
+
+#passwordLabel {
+    float: left;
+}
+
+
+#emailAddress {
+    position: relative;
+    left: 9px;
+}
+
+#firstName {
+    position: relative;
+    left: 35.5px;
+}
+
+#surName {
+    position: relative;
+    left: 46px;
+}
+
+#passwordEntry {
+    position: relative;
+    left: 47px;
+}
+
+#checkinDate {
+    position: relative;
+    left: 20px;
+    margin: 5px;
+}
+
+#personalDetails {
+    background-color: #c4d7f5;
+    margin-bottom: 10px;
+}
+
+#bookingDetails {
+    background-color: #f5dfc4;
+    margin-bottom: 10px;
+}
+
+#singleLabel, #doubleLabel, #kingLabel {
+    float: left;
+}
+
+#single, #double, #king {
+    position: relative;
+    right: 507px;
+    float: right;
+}
+
+#breakfastChoice {
+    position: relative;
+    margin: 3.5px;
+    left: 44px;
+    width: 100px;
+}
+
+#specialLabel {
+    float: left;
+}
+
+#specialRequirements {
+    position: relative;
+    left: 20px;
+}
+
+
+#buttons {
+    background-color: #b08856;
+}
+
+#submitButton, #resetButton {
+    background-color: #86abd4;
+    color: white;
+    border-style: solid;
+    border-color: white;
+    border-radius: 4px;
+    padding: 8px;
+    width: 70px;
+    float: right;
+    margin: 5px;
+}
+

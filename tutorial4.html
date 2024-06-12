@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="tutorial4.css">
+        <title>Tutorial 4</title>
+    </head>
+    <body>
+        <h1>Hotel Reservation</h1>
+
+        <form>
+            <fieldset id="personalDetails">
+                <legend><b>Personal Details</b></legend>
+
+                <label for="firstName">First name:</label>
+                <input type="text" name="firstName" placeholder="Enter your first name" id="firstName" required>
+                <br>
+
+                <label for="surName">Surname:</label>
+                <input type="text" name="surName" placeholder="Enter your surname" id="surName" required>
+                <br>
+
+                <label for="emailAddress">Email address:</label>
+                <input type="email" name="emailAddress" id="emailAddress" required>
+                <br>
+
+                <label for="passwordEntry" id="passwordLabel">Setup a <br>password:</label>
+                <input type="password" name="passwordEntry" size="50" 
+                placeholder="Min 8 characters, use at least 1 caps, no special characters" id="passwordEntry" required>
+
+
+            </fieldset>
+
+            <fieldset id="bookingDetails">
+                <legend><b>Booking Details</b></legend>
+
+                <label for="checkinDate">Checkin day:</label>
+                <input type="date" name="checkinDate" id="checkinDate" value="2023-02-14" required>
+                <br>
+                
+                <label for="daysStaying">Number of days:</label>
+                <input type="number" name="daysStaying" id="daysStaying" required>
+                <br><br>
+
+                <input type="radio" name="roomType" id="single" required>
+                <label for="single" id="singleLabel">Single Room</label>
+                <br><br>
+
+                <input type="radio" name="roomType" id="double">
+                <label for="double" id="doubleLabel">Double Room</label>
+                <br><br>
+
+                <input type="radio" name="roomType" id="king">
+                <label for="king" id="kingLabel">King Room</label>
+                <br><br>
+
+                <label for="breakfastChoice">Breakfast:</label>
+                <select name="breakfastChoice" id="breakfastChoice">
+                    <option value="include">Include</option>
+                    <option value="exclude">Exclude</option>
+                </select>
+                <br>
+
+                <label for="specialRequirements" id="specialLabel">Special <br>Requirements:</label>
+                <textarea name="specialRequirements" id="specialRequirements" rows="5" cols="20">Please provide any special requirements</textarea>
+
+            </fieldset>
+
+
+            <fieldset id="buttons">
+                <input type="submit" name="submitButton" id="submitButton" value="Send">
+                <input type="reset" name="resetButton" id="resetButton">
+            </fieldset>
+        </form>
+
+        <hr>
+        <address>Email - sulaiman.20232616@iit.ac.lk</address>
+        <sup>Last Modified Date - 6/11/2024</sup>
+    </body>
+</html>
