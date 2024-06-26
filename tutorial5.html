@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="tutorial5.css">
+        <title>Tutorial 5</title>
+    </head>
+    <body>
+        <h1 id="mainHeading">A Simple Maths Game</h1>
+
+        <p>
+            <strong>Question 1</strong>:
+            <span id="question1"></span>
+            <span id="answer1"></span>
+            <span id="feedback1"></span>
+        </p>
+
+        <p>
+            <strong>Question 2</strong>:
+            <span id="question2"></span>
+            <span id="answer2"></span>
+            <span id="feedback2"></span>
+        </p>
+
+        <p>
+            <strong>Question 3</strong>:
+            <span id="question3"></span>
+            <span id="answer3"></span>
+            <span id="feedback3"></span>
+        </p>
+
+        <p>
+            <strong>Question 4</strong>:
+            <span id="question4"></span>
+            <span id="answer4"></span>
+            <span id="feedback4"></span>
+        </p>
+
+        <p>
+            <strong>Question 5</strong>:
+            <span id="question5"></span>
+            <span id="answer5"></span>
+            <span id="feedback5"></span>
+        </p>
+
+        <p>
+            <strong>Question 6</strong>:
+            <span id="question6"></span>
+            <span id="answer6"></span>
+            <span id="feedback6"></span>
+        </p>
+
+        <p>
+            <strong>Question 7</strong>:
+            <span id="question7"></span>
+            <span id="answer7"></span>
+            <span id="feedback7"></span>
+        </p>
+
+        <p>
+            <strong>Question 8</strong>:
+            <span id="question8"></span>
+            <span id="answer8"></span>
+            <span id="feedback8"></span>
+        </p>
+
+        <p>
+            <strong>Question 9</strong>:
+            <span id="question9"></span>
+            <span id="answer9"></span>
+            <span id="feedback9"></span>
+        </p>
+
+        <p>
+            <strong>Question 10</strong>:
+            <span id="question10"></span>
+            <span id="answer10"></span>
+            <span id="feedback10"></span>
+        </p>
+
+        <p>
+            <strong>You Score</strong>:
+            <span id="score"></span>
+        </p>
+
+        <script>
+
+            window.addEventListener("DOMContentLoaded", (event) => {
+
+                let score = 0;
+
+                let q1Text = "8 + 7 = ...";
+                let f1 = document.getElementById("feedback1");
+                let a1 = document.getElementById("answer1");
+                let q1 = prompt(q1Text);
+                
+                document.getElementById("question1").innerHTML = q1Text;
+
+                if (q1 == 15) {
+                    a1.innerHTML = q1;
+                    f1.innerHTML = "&checkmark;";;
+                    f1.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a1.innerHTML = q1;
+                    f1.innerHTML = "&cross; The correct answer is 15";
+                    f1.classList.add("incorrect");
+                };
+                
+                let q2Text = "12 + 10 = ...";
+                let f2 = document.getElementById("feedback2");
+                let a2 = document.getElementById("answer2");
+                let q2 = prompt(q2Text);
+
+                document.getElementById("question2").innerHTML = q2Text;
+
+                if (q2 == 22) {
+                    a2.innerHTML = q2;
+                    f2.innerHTML = "&checkmark;";
+                    f2.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a2.innerHTML = q2;
+                    f2.innerHTML = "&cross; The correct answer is 22";
+                    f2.classList.add("incorrect");
+                };
+
+                let q3Text = "100 + 33 = ...";
+                let f3 = document.getElementById("feedback3");
+                let a3 = document.getElementById("answer3");
+                let q3 = prompt(q3Text);
+
+                document.getElementById("question3").innerHTML = q3Text;
+
+                if (q3 == 133) {
+                    a3.innerHTML = q3;
+                    f3.innerHTML = "&checkmark;";
+                    f3.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a3.innerHTML = q3;
+                    f3.innerHTML = "&cross; The correct answer is 133";
+                    f3.classList.add("incorrect");
+                };
+
+                let q4Text = "8 * 3 = ...";
+                let f4 = document.getElementById("feedback4");
+                let a4 = document.getElementById("answer4");
+                let q4 = prompt(q4Text);
+
+                document.getElementById("question4").innerHTML = q4Text;
+
+                if (q4 == 24) {
+                    a4.innerHTML = q4;
+                    f4.innerHTML = "&checkmark;";
+                    f4.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a4.innerHTML = q4;
+                    f4.innerHTML = "&cross; The correct answer is 24";
+                    f4.classList.add("incorrect");
+                };
+
+                let q5Text = "10 * 20 = ...";
+                let f5 = document.getElementById("feedback5");
+                let a5 = document.getElementById("answer5");
+                let q5 = prompt(q5Text);
+
+                document.getElementById("question5").innerHTML = q5Text;
+
+                if (q5 == 200) {
+                    a5.innerHTML = q5;
+                    f5.innerHTML = "&checkmark;";
+                    f5.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a5.innerHTML = q5;
+                    f5.innerHTML = "&cross; The correct answer is 200";
+                    f5.classList.add("incorrect");
+                };
+
+                let q6Text = "5 * 5 = ...";
+                let f6 = document.getElementById("feedback6");
+                let a6 = document.getElementById("answer6");
+                let q6 = prompt(q6Text);
+
+                document.getElementById("question6").innerHTML = q6Text;
+
+                if (q6 == 25) {
+                    a6.innerHTML = q6;
+                    f6.innerHTML = "&checkmark;";
+                    f6.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a6.innerHTML = q6;
+                    f6.innerHTML = "&cross; The correct answer is 25";
+                    f6.classList.add("incorrect");
+                };
+
+                let q7Text = "1 / 1 = ...";
+                let f7 = document.getElementById("feedback7");
+                let a7 = document.getElementById("answer7");
+                let q7 = prompt(q7Text);
+
+                document.getElementById("question7").innerHTML = q7Text;
+
+                if (q7 == 1) {
+                    a7.innerHTML = q7;
+                    f7.innerHTML = "&checkmark;";
+                    f7.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a7.innerHTML = q7;
+                    f7.innerHTML = "&cross; The correct answer is 1";
+                    f7.classList.add("incorrect");
+                };
+
+                let q8Text = "10 / 5 = ...";
+                let f8 = document.getElementById("feedback8");
+                let a8 = document.getElementById("answer8");
+                let q8 = prompt(q8Text);
+
+                document.getElementById("question8").innerHTML = q8Text;
+
+                if (q8 == 2) {
+                    a8.innerHTML = q8;
+                    f8.innerHTML = "&checkmark;";
+                    f8.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a8.innerHTML = q8;
+                    f8.innerHTML = "&cross; The correct answer is 2";
+                    f8.classList.add("incorrect");
+                };
+
+                let q9Text = "1 + 1 = ...";
+                let f9 = document.getElementById("feedback9");
+                let a9 = document.getElementById("answer9");
+                let q9 = prompt(q9Text);
+
+                document.getElementById("question9").innerHTML = q9Text;
+
+                if (q9 == 2) {
+                    a9.innerHTML = q9;
+                    f9.innerHTML = "&checkmark;";
+                    f9.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a9.innerHTML = q9;
+                    f9.innerHTML = "&cross; The correct answer is 2";
+                    f9.classList.add("incorrect");
+                };
+
+                let q10Text = "0 - 0 = ...";
+                let f10 = document.getElementById("feedback10");
+                let a10 = document.getElementById("answer10");
+                let q10 = prompt(q10Text);
+
+                document.getElementById("question10").innerHTML = q10Text;
+
+                if (q10 == 0) {
+                    a10.innerHTML = q10;
+                    f10.innerHTML = "&checkmark;";
+                    f10.classList.add("correct");
+                    score++;
+                }
+                else {
+                    a10.innerHTML = q10;
+                    f10.innerHTML = "&cross; The correct answer is 0";
+                    f10.classList.add("incorrect");
+                };
+
+                document.getElementById("score").innerHTML = (score * 10) + "/100";
+        });
+
+        </script>
+    </body>
+</html>
