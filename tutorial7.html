@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="tutorial7.css">
+        <title>Valentines Flowers - Order your flowers online</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Valentines Flowers</h1>
+
+            <div class="product" id="product1">
+                    <img id="white" src="images/images_tutorial7/white.jpeg" alt="white flowers">
+                    <div class="description">
+                        White Bouquet
+                        <div class="price">
+                            &#163;24
+                        </div>
+                    </div>
+            </div>
+        
+            <div class="product" id="product2">
+                    <img id="pink" src="images/images_tutorial7/pink.jpeg" alt="pink flowers">
+                    <div class="description">
+                        Pink Bouquet
+                        <div class="price">
+                            &#163;25
+                        </div>
+                    </div>
+            </div>
+    
+            <div class="product" id="product3">
+                    <img id="red" src="images/images_tutorial7/red.jpeg" alt="red flowers">
+                    <div class="description">
+                        Red Bouquet
+                        <div class="price">
+                            &#163;20
+                        </div>
+                    </div>
+            </div>
+
+            <div class="labelOrder">Your Order:<div id="orderDescription"></div><div class="product" id="order"></div></div>
+    
+    
+            <br>
+            <form onreset="resetOrder()">
+                    <label for="boquetOptions">Bouquet Options:</label>
+                    <select name="boquetOptions" id="boquetOptions" onchange="CheckOptions(this.form)">
+                        <option value="pleaseSelect">Please Select</option>
+                        <option value="withChampagne">with Champagne</option>
+                        <option value="extra">with 50% Extra Flowers</option>
+                        <option value="extraWithChampagne">with 50% Extra Flowers and Champagne</option>
+                    </select>
+    
+                    <label>
+                        Bouquet Colour:
+                        <input type="radio" name="colour" id="white" value="white">
+                        <label for="white">White</label>
+        
+                        <input type="radio" name="colour" id="pink" value="pink">
+                        <label for="pink">Pink</label>
+        
+                        <input type="radio" name="colour" id="red" value="red">
+                        <label for="red">Red</label>
+                    </label>
+    
+                    <input type="reset" value="Clear your order">
+                    <input type="button" value="Place your order">
+    
+            </form>
+    
+        </div>
+
+        <script>
+
+            let whiteFlowers = document.getElementById("white");
+            let pinkFlowers = document.getElementById("pink");
+            let redFlowers = document.getElementById("red");
+            let radioArray = document.getElementsByName("colour");
+            let chosenBouquet = "";
+
+            function CheckOptions(formRef) {
+                if (formRef.boquetOptions.value == "withChampagne") {
+                    whiteFlowers.src = "images/images_tutorial7/white-gift.jpeg";
+                    pinkFlowers.src = "images/images_tutorial7/pink-gift.jpeg";
+                    redFlowers.src = "images/images_tutorial7/red-gift.jpeg";
+                
+       
+                } 
+
+                for ( let i = 0; i < radioArray.length; i++ ) {
+                        if ( radioArray[ i ].checked ) { 
+                            chosenBouquet = radioArray[i];
+                        }
+                    }        
+
+                displayBouquet(chosenBouquet);
+            }
+
+            function displayBouquet(bouquet) {
+                switch (bouquet.value) {
+                    case "white":
+                        document.getElementById("order").innerHTML = document.getElementById("product1").innerHTML;
+                        break;
+                
+                    case "pink":
+                        document.getElementById("order").innerHTML = document.getElementById("product2").innerHTML;
+                        break;
+
+                    case "red":
+                        document.getElementById("order").innerHTML = document.getElementById("product3").innerHTML;
+                        break;
+
+                    default:
+                        document.getElementById("order").innerHTML = "";
+
+                };
+            };
+
+            function resetOrder() {
+                whiteFlowers.src = "images/images_tutorial7/white.jpeg";
+                pinkFlowers.src = "images/images_tutorial7/pink.jpeg";
+                redFlowers.src = "images/images_tutorial7/red.jpeg";
+                document.getElementById("order").innerHTML = "";
+            };
+ 
+        </script>
+    </body>
+</html>
