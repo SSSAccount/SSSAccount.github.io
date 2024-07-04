@@ -12,7 +12,7 @@ h1 {
 }
 
 .product {
-    display: inline;
+    display: block;
     float: left;
     background-color: white;
     margin: 10px 10px 0 0;
