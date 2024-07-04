@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="tutorial8.css">
+        <title>Valentines Flowers - Order your flowers online</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Valentines Flowers</h1>
+
+            <div class="product" id="product1">
+                    <img id="white" src="images/images_tutorial7/white.jpeg" alt="white flowers">
+                    <div class="description">
+                        White Bouquet
+                        <div class="price">
+                            &#163;24
+                        </div>
+                    </div>
+            </div>
+        
+            <div class="product" id="product2">
+                    <img id="pink" src="images/images_tutorial7/pink.jpeg" alt="pink flowers">
+                    <div class="description">
+                        Pink Bouquet
+                        <div class="price">
+                            &#163;25
+                        </div>
+                    </div>
+            </div>
+    
+            <div class="product" id="product3">
+                    <img id="red" src="images/images_tutorial7/red.jpeg" alt="red flowers">
+                    <div class="description">
+                        Red Bouquet
+                        <div class="price">
+                            &#163;20
+                        </div>
+                    </div>
+            </div>
+
+            <div class="labelOrder">Your Order:<div id="orderDescription"></div><div class="product" id="order"></div></div>
+    
+    
+            <br>
+            <form>
+                    <label for="boquetOptions">Bouquet Options:</label>
+                    <select name="boquetOptions" id="boquetOptions">
+                        <option value="pleaseSelect">Please Select</option>
+                        <option value="withChampagne">with Champagne</option>
+                        <option value="extra">with 50% Extra Flowers</option>
+                        <option value="extraWithChampagne">with 50% Extra Flowers and Champagne</option>
+                    </select>
+    
+                    Bouquet Colour:
+                    <input type="radio" name="colour" id="whiteColour" value="white" checked>
+                    <label for="whiteColour">White</label>
+        
+                    <input type="radio" name="colour" id="pinkColour" value="pink">
+                    <label for="pinkColour">Pink</label>
+        
+                    <input type="radio" name="colour" id="redColour" value="red">
+                    <label for="redColour">Red</label>
+    
+                    <input type="button" value="Place your order" id="submitButton">
+                    <input type="reset" value="Clear your order" id="resetButton">
+    
+            </form>
+    
+        </div>
+
+        <script>
+
+            // Initially display white flowers
+            document.getElementById("order").innerHTML = document.getElementById("product1").innerHTML;
+
+            let whiteFlowers = document.getElementById("white");
+            let pinkFlowers = document.getElementById("pink");
+            let redFlowers = document.getElementById("red");
+            let radioArray = document.getElementsByName("colour");
+            let priceArray = document.getElementsByClassName("price")
+            let initialPrice = [24, 25, 20];
+            let chosenBouquet = "";
+
+            let whiteColour = document.getElementById("whiteColour");
+            let pinkColour = document.getElementById("pinkColour")
+            let redColour = document.getElementById("redColour");
+
+            const whiteGiftImagePath = "images/images_tutorial7/white-gift.jpeg"
+            const pinkGiftImagePath = "images/images_tutorial7/pink-gift.jpeg"
+            const redGiftImagePath = "images/images_tutorial7/red-gift.jpeg"
+            const poundSymbol = "&#163;"
+
+            let resetButton = document.getElementById("resetButton");
+            resetButton.addEventListener("click", resetOrder);
+
+            let boquetOptions = document.getElementById("boquetOptions");
+            boquetOptions.addEventListener("change", CheckOptions);
+
+            whiteColour.addEventListener("click", CheckOptions)
+            pinkColour.addEventListener("click", CheckOptions)
+            redColour.addEventListener("click", CheckOptions)
+
+
+            function CheckOptions() {
+                resetOrder()
+
+                if (boquetOptions[1].selected) {
+                    whiteFlowers.src = whiteGiftImagePath;
+                    pinkFlowers.src = pinkGiftImagePath;
+                    redFlowers.src = redGiftImagePath;
+
+                    for (i = 0; i < priceArray.length; i++) {
+                        let priceWithoutPound = priceArray[i].innerHTML.replace('£', '');
+                        priceArray[i].innerHTML = `${poundSymbol}${parseInt(priceWithoutPound) + 15}`;
+                    }
+                
+                } 
+
+                if (boquetOptions[2].selected) {
+                    for (i = 0; i < priceArray.length; i++) {
+                        let priceWithoutPound = priceArray[i].innerHTML.replace('£', '');
+                        priceArray[i].innerHTML = `${poundSymbol}${parseInt(priceWithoutPound) *1.5}`;
+                    }
+                }
+
+                if (boquetOptions[3].selected) {
+                    whiteFlowers.src = whiteGiftImagePath;
+                    pinkFlowers.src = pinkGiftImagePath;
+                    redFlowers.src = redGiftImagePath;
+
+                    for (i = 0; i < priceArray.length; i++) {
+                        let priceWithoutPound = priceArray[i].innerHTML.replace('£', '');
+                        priceArray[i].innerHTML = `${poundSymbol}${(parseInt(priceWithoutPound) *1.5) + 15}`;
+                    }
+                }
+
+                for ( let i = 0; i < radioArray.length; i++ ) {
+                        if ( radioArray[ i ].checked ) { 
+                            chosenBouquet = radioArray[i];
+                        }
+                    }        
+
+                displayBouquet(chosenBouquet);
+            }
+
+            function displayBouquet(bouquet) {
+                console.log(bouquet);
+                switch (bouquet.value) {
+                    case "white":
+                        document.getElementById("order").innerHTML = document.getElementById("product1").innerHTML;
+                        break;
+                
+                    case "pink":
+                        document.getElementById("order").innerHTML = document.getElementById("product2").innerHTML;
+                        break;
+
+                    case "red":
+                        document.getElementById("order").innerHTML = document.getElementById("product3").innerHTML;
+                        break;
+
+                };
+            };
+
+
+            function resetOrder() {
+                whiteFlowers.src = "images/images_tutorial7/white.jpeg";
+                pinkFlowers.src = "images/images_tutorial7/pink.jpeg";
+                redFlowers.src = "images/images_tutorial7/red.jpeg";
+
+                for (i = 0; i < priceArray.length; i++) {
+                        let priceWithoutPound = priceArray[i].innerHTML.replace('£', '');
+                        priceArray[i].innerHTML = poundSymbol + initialPrice[i];
+                    }
+
+                document.getElementById("order").innerHTML = document.getElementById("product1").innerHTML;
+            };
+ 
+        </script>
+    </body>
+</html>
