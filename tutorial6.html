@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="tutorial6.css">
+        <title>Tutorial 6</title>
+    </head>
+    <body>
+        <h1 id="mainHeading">A Simple Maths Game 2</h1>
+
+        <p>
+            <strong>Question 1</strong>:
+            <span class="question"></span>
+            <span id="answer1"></span>
+            <span id="feedback1"></span>
+        </p>
+
+        <p>
+            <strong>Question 2</strong>:
+            <span class="question"></span>
+            <span id="answer2"></span>
+            <span id="feedback2"></span>
+        </p>
+
+        <p>
+            <strong>Question 3</strong>:
+            <span class="question"></span>
+            <span id="answer3"></span>
+            <span id="feedback3"></span>
+        </p>
+
+        <p>
+            <strong>Question 4</strong>:
+            <span class="question"></span>
+            <span id="answer4"></span>
+            <span id="feedback4"></span>
+        </p>
+
+        <p>
+            <strong>Question 5</strong>:
+            <span class="question"></span>
+            <span id="answer5"></span>
+            <span id="feedback5"></span>
+        </p>
+
+        <p>
+            <strong>Question 6</strong>:
+            <span class="question"></span>
+            <span id="answer6"></span>
+            <span id="feedback6"></span>
+        </p>
+
+        <p>
+            <strong>Question 7</strong>:
+            <span class="question"></span>
+            <span id="answer7"></span>
+            <span id="feedback7"></span>
+        </p>
+
+        <p>
+            <strong>Question 8</strong>:
+            <span class="question"></span>
+            <span id="answer8"></span>
+            <span id="feedback8"></span>
+        </p>
+
+        <p>
+            <strong>Question 9</strong>:
+            <span class="question"></span>
+            <span id="answer9"></span>
+            <span id="feedback9"></span>
+        </p>
+
+        <p>
+            <strong>Question 10</strong>:
+            <span class="question"></span>
+            <span id="answer10"></span>
+            <span id="feedback10"></span>
+        </p>
+
+        <p>
+            <strong>You Score</strong>:
+            <span id="score"></span>
+        </p>
+
+        <input type="button" id="startButton" name="startButton" value="Start Game">
+
+        <script>
+
+                function roundToTwo(num) {
+                    return +(Math.round(num + "e+2")  + "e-2");
+                }
+
+                document.getElementById("startButton").onclick = function() {
+                    let score = 0;
+                    const questionText = [];
+                    const operations = ["+", "-", "*", "/"];
+                    const questions = document.getElementsByClassName("question");
+
+                    function problem(question, operation, feedback, answer, num1, num2) {
+                        let q = prompt(question);
+
+                        if (operation === "+" && q == (num1 + num2)) {
+                            answer.innerHTML = q;
+                            feedback.classList.add("correct");
+                            feedback.innerHTML = "&checkmark;";
+                            score++
+                        }
+                        else if (operation === "+") {
+                            answer.innerHTML = q;
+                            feedback.classList.add("incorrect");
+                            feedback.innerHTML = "&cross; The correct answer is " + (num1 + num2);
+                        }
+
+                        if (operation === "-" && q == (num1 - num2)) {
+                            answer.innerHTML = q;
+                            feedback.classList.add("correct");
+                            feedback.innerHTML = "&checkmark;";
+                            score++
+                        }
+                        else if (operation === "-"){
+                            answer.innerHTML = q;
+                            feedback.classList.add("incorrect");
+                            feedback.innerHTML = "&cross; The correct answer is " + (num1 - num2);
+                        }
+
+                        if (operation === "*" && q == (num1 * num2)) {
+                            answer.innerHTML = q;
+                            feedback.classList.add("correct");
+                            feedback.innerHTML = "&checkmark;";
+                            score++
+                        }
+                        else if (operation === "*"){
+                            answer.innerHTML = q;
+                            feedback.classList.add("incorrect");
+                            feedback.innerHTML = "&cross; The correct answer is " + (num1 * num2);
+                        }
+
+                        if (operation === "/" && q == roundToTwo((num1 / num2))) {
+                            answer.innerHTML = q;
+                            feedback.classList.add("correct");
+                            feedback.innerHTML = "&checkmark;";
+                            score++
+                        }
+                        else if (operation === "/") {
+                            answer.innerHTML = q;
+                            feedback.classList.add("incorrect");
+                            feedback.innerHTML = "&cross; The correct answer is " + roundToTwo((num1 / num2));
+                        }
+
+
+                    };
+
+
+                    for (let i = 0; i <= 10; i++) {
+                        
+                        let x = Math.floor(Math.random()*101);
+                        let y = Math.floor(Math.random()*101);
+
+                        let f = document.getElementById("feedback" + (i + 1));
+                        let a = document.getElementById("answer" + (i + 1));
+                        
+                        let randomIndex = Math.floor(Math.random() * operations.length);
+                        let qText = x + " " + operations[randomIndex] + " " + y + " = ...";
+
+                        if (i == 10) {
+                            break;
+                        }
+                        else {
+                            questions[i].innerHTML = qText;
+                            questionText[i] = [qText, f, a, x, y];
+                            problem(questionText[i][0], operations[randomIndex], questionText[i][1], questionText[i][2], questionText[i][3], questionText[i][4]);
+                        }
+
+                    };
+
+
+                    document.getElementById("score").innerHTML = (score * 10) +"/100";
+                    if (score < 5) {
+                        document.body.style.backgroundColor="#FF474C";
+                    }
+                    else {
+                        document.body.style.backgroundColor="#90EE90";
+                    };
+
+                }
+
+        </script>
+    </body>
+</html>
